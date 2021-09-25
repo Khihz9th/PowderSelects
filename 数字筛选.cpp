@@ -4,11 +4,11 @@
 
 int main()
 {
-	int charge[12]={26480,	31760,	32080	,48480	,22160,	57120,	70240,	119840,	58240,	48000,	24480};
-	int judgeOfCharge[12]={1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}  
-	int levelOfCharge[12]={0};
-	int i,j,l=0;
-	//ÇóÊıÁ¿¼¶ 
+	int charge[12]={26480, 31760, 32080 ,48480, 22160, 57120, 70240, 119840, 58240,	48000, 24480};
+	int judgeOfCharge[12] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+	int levelOfCharge[12] = {0};
+	int i, j, l = 0;
+	//æ±‚æ•°é‡çº§ 
 	for(i = 0; i < 12; i++)
 	{
 		for(j = 1; charge[i] >= j; j *= 10){
@@ -17,13 +17,12 @@ int main()
 		levelOfCharge[i] = l - 1;
 		l=0;
 	}
-	
 	for(i=0;i<12;i++)
 	{
-		printf("charge[%d]=%dµÄÊıÁ¿¼¶ÊÇ10^%d\n ",i,charge[i],levelOfCharge[i]);
+		printf("charge[%d]=%dçš„æ•°é‡çº§æ˜¯10^%d\n ",i,charge[i],levelOfCharge[i]);
 	}
 	printf("\n");
-//Çó³öÏÖ×î¶àµÄÊıÁ¿¼¶ 
+	//æ±‚å‡ºç°æœ€å¤šçš„æ•°é‡çº§ 
 	getch();
 	system("cls");
 	int normal1[12][2]={0};
@@ -62,39 +61,33 @@ int main()
 		if(normal1[i][1]<normal1[i+1][1]) j=i+1;
 	}
 	
-	printf("\nÖÚÊıÊÇ%d",normal1[j][0]);
+	printf("\nä¼—æ•°æ˜¯%d",normal1[j][0]);
 	getch();
 	system("cls");
 	int normalValue[12];
-	
-	int s=1;
-	
+	int s=1;	
 	for(i=0;i<normal1[j][0];i++) s*=10;
-	
 	printf("\ns=%d\n",s);
 	for(i=0;i<12;i++){
 		if(charge[i]*10/s>4){
 			normalValue[i]=charge[i]/s+1;
 		}else{
 			normalValue[i]=charge[i]/s;
-		}
-		
+		}		
 	}
 	getch();
 	system("cls");
 	for(i=0;i<12;i++)
 	{
-		printf(" charge[%d]=%dµÄÌØÕ÷Êı×ÖÊÇ%d\n ",i,charge[i],normalValue[i]);
+		printf(" charge[%d]=%dçš„ç‰¹å¾æ•°å­—æ˜¯%d\n ",i,charge[i],normalValue[i]);
 	}
 	getch();
 	system("cls");
 	printf("\n");
-	
 	int normal2[12][2]={0};
 	l=0;
 	normal2[0][0]=normalValue[0];
 	normal2[0][1]=1;
-	
 	for(i=1;i<12;i++)
 	{
 		for(j=0;j<i;j++)
@@ -151,38 +144,31 @@ int main()
 	}
 	getch();
 	system("cls");
-
 	int judgeCenter;
-	
 	if(normal2[0][1]==normal2[1][1])
 	{
 		judgeCenter=(normal2[0][0]+normal2[1][0])/2;
 	}else{
 		judgeCenter=normal2[0][0];
 	}
-	
 	int judgeTop,judgeBottom;
-	
 	judgeTop=(judgeCenter+2)*s;
 	judgeBottom=(judgeCenter-2)*s;
-	
 	for(i=0;i<12;i++){
 		if(judgeOfCharge[i]==0) continue;
 		if(charge[i]<judgeBottom||charge[i]>judgeTop){
 			judgeOfCharge[i]=0;
-			printf("%d²»ÔÚ%d~%d·¶Î§ÄÚ\n",charge[i],judgeBottom,judgeTop);
+			printf("%dä¸åœ¨%d~%dèŒƒå›´å†…\n",charge[i],judgeBottom,judgeTop);
 		}else{
-			printf("%dÔÚ%d~%d·¶Î§ÄÚ\n",charge[i],judgeBottom,judgeTop);
+			printf("%dåœ¨%d~%dèŒƒå›´å†…\n",charge[i],judgeBottom,judgeTop);
 		}
 	}
-	
 	for(i=0;i<12;i++) printf("%d ",judgeOfCharge[i]);
 	getch();
 	system("cls");
 	int minOutput;
 	l=0;
-	for(i=0;i<12;i++){
-		
+	for(i=0;i<12;i++){	
 		if(judgeOfCharge[i]==0) continue;
 		if(l==0) {
 		l++;
@@ -190,7 +176,5 @@ int main()
 		}
 		else if(charge[i]<minOutput) minOutput=charge[i];	
 	}
-	
 	printf("\n minOutput=%d",minOutput);
 }
-
