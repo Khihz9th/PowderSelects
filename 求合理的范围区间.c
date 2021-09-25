@@ -28,17 +28,17 @@ int main()
 	int errNumber;
 	errNumber = arrayOrderf(arrayOfSelected, Output, MONTH - fixValue, numOfaverge - (int)1.5*radiusAverage);
 	printf("\n");
-	printf("Æ½¾ùÊıÊÇ%d£¬°ë¾¶ÊÇ%d", numOfaverge,radiusAverage);
+	printf("å¹³å‡æ•°æ˜¯%dï¼ŒåŠå¾„æ˜¯%d", numOfaverge,radiusAverage);
 	printf("\n");
 	debugPrintArrayf(Output, MONTH - fixValue - errNumber);
 	printf("\n");
-	printf("µÚÒ»´Î¹ıÂËÒì³£Êı¾İ%d¸ö£¬µÚ¶ş´Î¹ıÂËÒì³£Êı¾İ%d¸ö£¬¹¦ÂÊÔ¼Îª%.2lfkW.", \
+	printf("ç¬¬ä¸€æ¬¡è¿‡æ»¤å¼‚å¸¸æ•°æ®%dä¸ªï¼Œç¬¬äºŒæ¬¡è¿‡æ»¤å¼‚å¸¸æ•°æ®%dä¸ªï¼ŒåŠŸç‡çº¦ä¸º%.2lfkW.", \
 		fixValue, errNumber,  Output[0] / (0.81 * 30000));
 }
 
 int arrayOrderf(int original[], int selected[], int changeTime, int fixValue)
 {
-	/*¹ıÂËµôoriginalÊı×éµÄĞ¡ÓÚfixValueµÄÊı£¬²¢½«Ê£ÏÂµÄÊı×é°´´ÓĞ¡µ½´óµÄË³ĞòÅÅÁĞ£¬·µ»Ø±»¹ıÂËµÄÊıµÄ¸öÊınumErr*/
+	/*è¿‡æ»¤æ‰originalæ•°ç»„çš„å°äºfixValueçš„æ•°ï¼Œå¹¶å°†å‰©ä¸‹çš„æ•°ç»„æŒ‰ä»å°åˆ°å¤§çš„é¡ºåºæ’åˆ—ï¼Œè¿”å›è¢«è¿‡æ»¤çš„æ•°çš„ä¸ªæ•°numErr*/
 	int numErr = 0;
 	int b = 0;
 	
@@ -77,13 +77,13 @@ int arrayOrderf(int original[], int selected[], int changeTime, int fixValue)
 
 void debugPrintArrayf(int a[], int changeTime) 
 {
-	/*Êä³öÒ»¸öÊı×éÖĞµÄÇ°changeTime¸ö*/
+	/*è¾“å‡ºä¸€ä¸ªæ•°ç»„ä¸­çš„å‰changeTimeä¸ª*/
 	for (int i = 0; i < changeTime; i++) printf("%d ", a[i]);
 }
 
 int sumOfAveragef(int a[], int length,int fixValue)
 {
-	/*È¥µôÁ½¸ö×î´óÖµºÍÁ½¸ö×îĞ¡Öµ£¬ÔÙ¼ÆËã²¢·µ»ØËüÃÇµÄÆ½¾ùÖµ*/
+	/*å»æ‰ä¸¤ä¸ªæœ€å¤§å€¼å’Œä¸¤ä¸ªæœ€å°å€¼ï¼Œå†è®¡ç®—å¹¶è¿”å›å®ƒä»¬çš„å¹³å‡å€¼*/
 	int calTime = length - fixValue;
 	if (calTime < 5) return -1;
 	int sum = 0;
